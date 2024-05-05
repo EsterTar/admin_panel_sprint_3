@@ -22,7 +22,7 @@ class State:
 
 
 class PersonNested(BaseModel):
-    id: str
+    id: uuid.UUID
     name: str
 
 
@@ -38,3 +38,20 @@ class Movie(BaseModel):
     directors: List[PersonNested] = Field(default_factory=list)
     actors: List[PersonNested] = Field(default_factory=list)
     writers: List[PersonNested] = Field(default_factory=list)
+
+
+class FilmNested(BaseModel):
+    id: uuid.UUID
+    title: str
+
+
+class Genre(BaseModel):
+    id: uuid.UUID
+    name: str
+    description: Optional[str] = None
+    films: List[FilmNested] = Field(default_factory=list)
+
+
+class Person(BaseModel):
+    id: uuid.UUID
+    full_name: str
