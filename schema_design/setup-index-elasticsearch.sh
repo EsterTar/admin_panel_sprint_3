@@ -7,7 +7,7 @@ until curl -s http://127.0.0.1:9200/; do
 done
 
 if curl -s --head --fail "http://localhost:9200/movies" | grep -q "200 OK"; then
-    echo "Index already exists. Skip."
+    echo "Index 'movies' already exists. Skip."
 else
   curl -X PUT "http://localhost:9200/movies" -H 'Content-Type: application/json' -d'
   {
@@ -69,6 +69,125 @@ else
         "directors": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } },
         "actors": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } },
         "writers": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } }
+      }
+    }
+  }
+  '
+fi
+
+
+
+if curl -s --head --fail "http://localhost:9200/genres" | grep -q "200 OK"; then
+    echo "Index 'genres' already exists. Skip."
+else
+  curl -X PUT "http://localhost:9200/genres" -H 'Content-Type: application/json' -d'
+  {
+    "settings": {
+      "refresh_interval": "1s",
+      "analysis": {
+        "filter": {
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          },
+          "russian_stop": {
+            "type": "stop",
+            "stopwords": "_russian_"
+          },
+          "russian_stemmer": {
+            "type": "stemmer",
+            "language": "russian"
+          }
+        },
+        "analyzer": {
+          "ru_en": {
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "english_stop",
+              "english_stemmer",
+              "english_possessive_stemmer",
+              "russian_stop",
+              "russian_stemmer"
+            ]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "properties": {
+        "id": { "type": "keyword" },
+        "name": { "type": "text", "analyzer": "ru_en" },
+        "description": { "type": "text", "analyzer": "ru_en" },
+        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "title": { "type": "text", "analyzer": "ru_en" } } },
+      }
+    }
+  }
+  '
+fi
+
+
+
+
+if curl -s --head --fail "http://localhost:9200/persons" | grep -q "200 OK"; then
+    echo "Index 'persons' already exists. Skip."
+else
+  curl -X PUT "http://localhost:9200/persons" -H 'Content-Type: application/json' -d'
+  {
+    "settings": {
+      "refresh_interval": "1s",
+      "analysis": {
+        "filter": {
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          },
+          "russian_stop": {
+            "type": "stop",
+            "stopwords": "_russian_"
+          },
+          "russian_stemmer": {
+            "type": "stemmer",
+            "language": "russian"
+          }
+        },
+        "analyzer": {
+          "ru_en": {
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "english_stop",
+              "english_stemmer",
+              "english_possessive_stemmer",
+              "russian_stop",
+              "russian_stemmer"
+            ]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "properties": {
+        "id": { "type": "keyword" },
+        "full_name": { "type": "text", "analyzer": "ru_en" }
       }
     }
   }
