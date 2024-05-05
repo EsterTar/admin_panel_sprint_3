@@ -2,12 +2,12 @@
 set -e
 
 until curl -s http://127.0.0.1:9200/; do
-    echo "Elasticsearch not available, wait..."
+    echo "\nElasticsearch not available, wait...\n"
     sleep 1
 done
 
 if curl -s --head --fail "http://localhost:9200/movies" | grep -q "200 OK"; then
-    echo "Index 'movies' already exists. Skip."
+    echo "\nIndex 'movies' already exists. Skip.\n"
 else
   curl -X PUT "http://localhost:9200/movies" -H 'Content-Type: application/json' -d'
   {
@@ -78,7 +78,7 @@ fi
 
 
 if curl -s --head --fail "http://localhost:9200/genres" | grep -q "200 OK"; then
-    echo "Index 'genres' already exists. Skip."
+    echo "\nIndex 'genres' already exists. Skip.\n"
 else
   curl -X PUT "http://localhost:9200/genres" -H 'Content-Type: application/json' -d'
   {
@@ -128,7 +128,7 @@ else
         "id": { "type": "keyword" },
         "name": { "type": "text", "analyzer": "ru_en" },
         "description": { "type": "text", "analyzer": "ru_en" },
-        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "title": { "type": "text", "analyzer": "ru_en" } } },
+        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "title": { "type": "text", "analyzer": "ru_en" } } }
       }
     }
   }
@@ -139,7 +139,7 @@ fi
 
 
 if curl -s --head --fail "http://localhost:9200/persons" | grep -q "200 OK"; then
-    echo "Index 'persons' already exists. Skip."
+    echo "\nIndex 'persons' already exists. Skip.\n"
 else
   curl -X PUT "http://localhost:9200/persons" -H 'Content-Type: application/json' -d'
   {
