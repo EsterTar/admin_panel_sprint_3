@@ -277,7 +277,7 @@ def transform_persons_data(cursor: ServerCursor, persons_ids: list):
     details_sql = '''
         SELECT
             p.id,
-            p.full_name
+            p.full_name as name
         FROM
             content.person AS p
         WHERE 
