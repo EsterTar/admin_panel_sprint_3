@@ -227,7 +227,7 @@ def transform_filmworks_data(cursor: ServerCursor, filmwork_ids: list):
             fw.title,
             fw.description,
             fw.rating AS imdb_rating,
-            ARRAY_AGG(DISTINCT g.name) AS genres,
+            JSON_AGG(DISTINCT jsonb_build_object('id', g.id, 'name', g.name)) AS genres,
             JSON_AGG(DISTINCT jsonb_build_object('id', p.id, 'name', p.full_name)) FILTER (WHERE pfw.role = 'director') AS directors,
             JSON_AGG(DISTINCT jsonb_build_object('id', p.id, 'name', p.full_name)) FILTER (WHERE pfw.role = 'actor') AS actors,
             JSON_AGG(DISTINCT jsonb_build_object('id', p.id, 'name', p.full_name)) FILTER (WHERE pfw.role = 'writer') AS writers,
