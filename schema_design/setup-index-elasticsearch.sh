@@ -187,7 +187,8 @@ else
       "dynamic": "strict",
       "properties": {
         "id": { "type": "keyword" },
-        "name": { "type": "text", "analyzer": "ru_en" }
+        "name": { "type": "text", "analyzer": "ru_en" },
+        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "title": { "type": "text", "analyzer": "ru_en" } } }
       }
     }
   }
