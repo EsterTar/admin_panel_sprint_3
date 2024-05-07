@@ -220,7 +220,6 @@ def get_changed_persons(
 
 
 def transform_filmworks_data(cursor: ServerCursor, filmwork_ids: list):
-    formatted_filmwork_ids = ', '.join(['%s'] * len(filmwork_ids))
     details_sql = f'''
         SELECT
             fw.id,
@@ -252,7 +251,6 @@ def transform_filmworks_data(cursor: ServerCursor, filmwork_ids: list):
 
 
 def transform_genres_data(cursor: ServerCursor, genres_ids: list):
-    formatted_genre_ids = ', '.join(['%s'] * len(genres_ids))
     details_sql = f'''
         SELECT
             g.id,
@@ -262,10 +260,10 @@ def transform_genres_data(cursor: ServerCursor, genres_ids: list):
         FROM content.film_work fw
         LEFT JOIN content.genre_film_work gfw ON gfw.film_work_id = fw.id
         LEFT JOIN content.genre g ON g.id = gfw.genre_id
-        WHERE g.id IN ({formatted_genre_ids})
+        WHERE g.id = ANY(%s)
         GROUP BY g.id;
     '''
-    cursor.execute(details_sql, tuple(genres_ids))
+    cursor.execute(details_sql, (genres_ids,))
     formatted_data = cursor.fetchall()
     for row in formatted_data:
         if row['films'] is None:
@@ -275,13 +273,36 @@ def transform_genres_data(cursor: ServerCursor, genres_ids: list):
 
 def transform_persons_data(cursor: ServerCursor, persons_ids: list):
     details_sql = '''
+        WITH Roles AS (
+            SELECT
+                pfw.person_id,
+                fw.id AS film_id,
+                fw.rating as imdb_rating,
+                array_agg(pfw.role) AS roles
+            FROM
+                content.person_film_work AS pfw
+            JOIN
+                content.film_work AS fw ON pfw.film_work_id = fw.id
+            GROUP BY
+                pfw.person_id, fw.id
+        )
         SELECT
             p.id,
-            p.full_name as name
+            p.full_name AS name,
+            JSON_AGG(
+                JSON_BUILD_OBJECT(
+                    'id', r.film_id,
+                    'roles', r.roles,
+                    'imdb_rating', r.imdb_rating
+                )
+            ) FILTER (WHERE r.film_id IS NOT NULL) AS films
         FROM
             content.person AS p
+        LEFT JOIN Roles r ON r.person_id = p.id
         WHERE 
             p.id = ANY(%s)
+        GROUP BY
+            p.id;
     '''
     cursor.execute(details_sql, (persons_ids,))
     formatted_data = cursor.fetchall()

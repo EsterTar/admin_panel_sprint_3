@@ -24,10 +24,10 @@ docker-compose exec django python manage.py migrate
 echo -e "\nUploading test data to database...\n"
 docker-compose exec django python sqlite_to_postgres/load_data.py
 
-echo -e "\nBuilding and starting ETL container...\n"
-docker-compose up --build --detach etl
-
 echo -e "\nCreating schema in Elasticsearch...\n"
 sh ./schema_design/setup-index-elasticsearch.sh
+
+echo -e "\nBuilding and starting ETL container...\n"
+docker-compose up --build --detach etl
 
 echo -e "\nSetup completed successfully!"

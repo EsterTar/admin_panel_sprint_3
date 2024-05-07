@@ -26,10 +26,16 @@ class PersonNested(BaseModel):
     name: str
 
 
+class GenresNested(BaseModel):
+    id: uuid.UUID
+    name: str
+
+
+
 class Movie(BaseModel):
     id: uuid.UUID
     imdb_rating: Optional[float] = None
-    genres: List[str]
+    genres: List[GenresNested]
     title: str
     description: Optional[str] = None
     directors_names: List[str] = Field(default_factory=list)
@@ -40,7 +46,7 @@ class Movie(BaseModel):
     writers: List[PersonNested] = Field(default_factory=list)
 
 
-class FilmNested(BaseModel):
+class GenreFilmNested(BaseModel):
     id: uuid.UUID
     title: str
 
@@ -49,9 +55,16 @@ class Genre(BaseModel):
     id: uuid.UUID
     name: str
     description: Optional[str] = None
-    films: List[FilmNested] = Field(default_factory=list)
+    films: List[GenreFilmNested] = Field(default_factory=list)
+
+
+class PersonFilmNested(BaseModel):
+    id: uuid.UUID
+    roles: List[str]
+    imdb_rating: float
 
 
 class Person(BaseModel):
     id: uuid.UUID
-    full_name: str
+    name: str
+    films: List[PersonFilmNested] = Field(default_factory=list)

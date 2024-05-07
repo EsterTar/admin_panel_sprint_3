@@ -188,7 +188,7 @@ else
       "properties": {
         "id": { "type": "keyword" },
         "name": { "type": "text", "analyzer": "ru_en" },
-        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "title": { "type": "text", "analyzer": "ru_en" } } }
+        "films": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "roles": { "type": "keyword" }, "imdb_rating": { "type": "float" } } }
       }
     }
   }
