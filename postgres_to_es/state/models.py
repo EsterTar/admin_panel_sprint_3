@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 from typing import Any, Optional, List
 from pydantic import BaseModel, Field
 
@@ -31,7 +32,6 @@ class GenresNested(BaseModel):
     name: str
 
 
-
 class Movie(BaseModel):
     id: uuid.UUID
     imdb_rating: Optional[float] = None
@@ -44,6 +44,7 @@ class Movie(BaseModel):
     directors: List[PersonNested] = Field(default_factory=list)
     actors: List[PersonNested] = Field(default_factory=list)
     writers: List[PersonNested] = Field(default_factory=list)
+    creation_date: Optional[datetime] = None
 
 
 class GenreFilmNested(BaseModel):
@@ -61,7 +62,7 @@ class Genre(BaseModel):
 class PersonFilmNested(BaseModel):
     id: uuid.UUID
     roles: List[str]
-    imdb_rating: float
+    imdb_rating: Optional[float] = None
 
 
 class Person(BaseModel):

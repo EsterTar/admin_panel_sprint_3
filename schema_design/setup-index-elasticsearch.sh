@@ -68,7 +68,8 @@ else
         "writers_names": { "type": "text", "analyzer": "ru_en" },
         "directors": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } },
         "actors": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } },
-        "writers": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } }
+        "writers": { "type": "nested", "dynamic": "strict", "properties": { "id": { "type": "keyword" }, "name": { "type": "text", "analyzer": "ru_en" } } },
+        "creation_date": { "type": "date"}
       }
     }
   }
