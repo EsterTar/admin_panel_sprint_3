@@ -1,6 +1,7 @@
 import http
 import json
 from enum import StrEnum, auto
+from typing import Any
 
 import requests
 from django.conf import settings
@@ -11,6 +12,11 @@ User = get_user_model()
 
 
 class Roles(StrEnum):
+
+    def _generate_next_value_(name: str, start: int, count: int, last_values: list[Any]) -> Any:
+        return name.lower()
+
+    SUPERUSER = auto()
     ADMIN = auto()
     SUBSCRIBER = auto()
 
@@ -47,10 +53,10 @@ class AuthBackend(BaseBackend):
             else:
                 user.is_active = True
 
-            if 'superuser' in data.get('roles'):
+            if Roles.SUPERUSER in data.get('roles'):
                 user.is_admin = True
                 user.is_staff = True
-            elif 'admin' in data.get('roles'):
+            elif Roles.ADMIN in data.get('roles'):
                 user.is_admin = False
                 user.is_staff = True
             else:
