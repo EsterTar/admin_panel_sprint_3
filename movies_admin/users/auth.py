@@ -18,7 +18,9 @@ class Roles(StrEnum):
 
     SUPERUSER = auto()
     ADMIN = auto()
-    SUBSCRIBER = auto()
+    PREMIUM = auto()
+    USER = auto()
+    INCOGNITO = auto()
 
 
 class AuthBackend(BaseBackend):
