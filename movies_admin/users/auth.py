@@ -29,7 +29,11 @@ class AuthBackend(BaseBackend):
         url_user = f'{settings.AUTH_API_LOGIN_URL}/users/'
 
         payload = {'login': username, 'password': password}
-        response = requests.post(url_login, data=json.dumps(payload))
+
+        try:
+            response = requests.post(url_login, data=json.dumps(payload))
+        except requests.ConnectionError:
+            return None
 
         if response.status_code != http.HTTPStatus.ACCEPTED:
             return None
@@ -68,6 +72,7 @@ class AuthBackend(BaseBackend):
             user.save()
         except Exception:
             return None
+
         return user
 
     def get_user(self, user_id):
