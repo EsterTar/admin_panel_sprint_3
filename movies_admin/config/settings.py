@@ -2,9 +2,17 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+import sentry_sdk
 from split_settings.tools import include
 
 load_dotenv(dotenv_path='.env')
+
+
+sentry_sdk.init(
+    dsn=os.environ.get('SENTRY_DSN'),
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
+)
 
 AUTH_USER_MODEL = "users.User"
 

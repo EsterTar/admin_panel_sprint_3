@@ -36,3 +36,4 @@ typing_extensions==4.11.0
 uWSGI==2.0.24
 wcwidth==0.2.13
 django-request-id==1.0.0
+sentry-sdk==2.10.0
