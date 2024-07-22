@@ -1,4 +1,5 @@
 MIDDLEWARE = [
+    'request_id.middleware.RequestIdMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

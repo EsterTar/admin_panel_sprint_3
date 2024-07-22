@@ -1,0 +1,56 @@
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /admin/login/?next=/admin/ HTTP/1.1" 200 14077" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/css/login.css HTTP/1.1" 200 958" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/css/base.css HTTP/1.1" 200 21207" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/js/theme.js HTTP/1.1" 200 1943" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/css/responsive.css HTTP/1.1" 200 18533" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 13578" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 12621" }
+{ "time": "2024-07-22 13:40:56", "level": "INFO", "message": ""GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4527" }
+{ "time": "2024-07-22 13:40:56", "level": "WARNING", "message": "Not Found: /favicon.ico" }
+{ "time": "2024-07-22 13:40:56", "level": "WARNING", "message": ""GET /favicon.ico HTTP/1.1" 404 12114" }
+{ "time": "2024-07-22 13:41:36", "level": "INFO", "message": "E:\git\admin_panel_sprint_3\movies_admin\config\settings.py changed, reloading." }
+{ "time": "2024-07-22 14:05:28", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 14:06:23", "level": "INFO", "message": "E:\git\admin_panel_sprint_3\movies_admin\config\components\installed_apps.py changed, reloading." }
+{ "time": "2024-07-22 14:06:24", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 14:06:34", "level": "INFO", "message": "E:\git\admin_panel_sprint_3\movies_admin\config\components\middleware.py changed, reloading." }
+{ "time": "2024-07-22 14:06:34", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 14:06:37", "level": "INFO", "message": "E:\git\admin_panel_sprint_3\movies_admin\config\settings.py changed, reloading." }
+{ "time": "2024-07-22 14:06:37", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 14:06:55", "level": "INFO", "message": ""GET /admin/ HTTP/1.1" 302 0" }
+{ "time": "2024-07-22 14:06:55", "level": "INFO", "message": ""GET /admin/login/?next=/admin/ HTTP/1.1" 200 14077" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /admin/login/?next=/admin/ HTTP/1.1" 200 14075" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/css/login.css HTTP/1.1" 200 958" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/css/base.css HTTP/1.1" 200 21207" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/css/responsive.css HTTP/1.1" 200 18533" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 12621" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 13578" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/js/theme.js HTTP/1.1" 200 1943" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43" }
+{ "time": "2024-07-22 14:06:57", "level": "INFO", "message": ""GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4527" }
+{ "time": "2024-07-22 14:06:57", "level": "WARNING", "message": "Not Found: /favicon.ico" }
+{ "time": "2024-07-22 14:06:57", "level": "WARNING", "message": ""GET /favicon.ico HTTP/1.1" 404 12114" }
+{ "time": "2024-07-22 20:08:37", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:09:43", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:11:12", "level": "INFO", "message": "E:\git\admin_panel_sprint_3\movies_admin\config\components\middleware.py changed, reloading." }
+{ "time": "2024-07-22 20:11:13", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:11:18", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:12:56", "level": "INFO", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:14:54", "level": "INFO", "request_id": "", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:15:27", "level": "INFO", "request_id": "", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:15:51", "level": "ERROR", "request_id": "5093abf28a134a2f82650ee05d147cde", "message": "Internal Server Error: /admin" }
+{ "time": "2024-07-22 20:15:51", "level": "ERROR", "request_id": "", "message": ""POST /admin HTTP/1.1" 500 88021" }
+{ "time": "2024-07-22 20:17:03", "level": "INFO", "request_id": "", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-22 20:17:14", "level": "ERROR", "request_id": "5093abf28a134a2f82650ee05d147cde", "message": "Internal Server Error: /admin" }
+{ "time": "2024-07-22 20:17:15", "level": "ERROR", "request_id": "", "message": ""POST /admin HTTP/1.1" 500 88022" }
+{ "time": "2024-07-23 00:10:18", "level": "WARNING", "request_id": "5093abf28a134a2f82650ee05d147cde", "message": "Forbidden (CSRF cookie not set.): /admin/" }
+{ "time": "2024-07-23 00:10:18", "level": "WARNING", "request_id": "", "message": ""POST /admin/ HTTP/1.1" 403 13117" }
+{ "time": "2024-07-23 00:37:29", "level": "INFO", "request_id": "", "message": "Watching for file changes with StatReloader" }
+{ "time": "2024-07-23 00:37:35", "level": "WARNING", "request_id": "5093abf28a134a2f82650ee05d147cde", "message": "Forbidden (CSRF cookie not set.): /admin/" }
+{ "time": "2024-07-23 00:37:36", "level": "WARNING", "request_id": "", "message": ""POST /admin/ HTTP/1.1" 403 13118" }
