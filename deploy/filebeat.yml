@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: filestream
+  enabled: true
+  paths:
+    - /var/log/nginx/*
+  tags: ["admin_service"]
+  json:
+    keys_under_root: true
+    add_error_key: true
+  processors:
+    - decode_json_fields:
+        fields: ["message"]
+        process_array: false
+        max_depth: 2
+        target: ""
+        overwrite_keys: true
+        add_error_key: false
+
+output.logstash:
+  enabled: true
+  hosts: ["logstash:5044"]
